@@ -30,20 +30,25 @@ function displayAllIssues(inputData){
  inputData.forEach(element =>{
 
     let borderColorClass
-    let bgStat
     
-    if(element.priority.toLowerCase()==="high"){
-        borderColorClass = "border-green-400";
-        bgStat="bg-red-300"
-    }
-    else if(element.priority.toLowerCase() === "medium") {
-      borderColorClass = "border-green-400";
-      bgStat="bg-yellow-300"}
-    else{
-        borderColorClass = "border-purple-400" 
-            bgStat="bg-gray-300"
+    
+    if(element.status.toLowerCase()==="open"){ 
+        borderColorClass = "border-green-400"
     }
 
+   else if(element.status.toLowerCase()==="closed"){     
+    borderColorClass = "border-purple-400"
+    }
+let bgStat
+if(element.priority.toLowerCase()==="high"){ 
+        bgStat = "bg-red-200"
+    }
+else if(element.priority.toLowerCase()==="medium"){ 
+        bgStat = "bg-yellow-200"
+    }
+else if(element.priority.toLowerCase()==="low"){ 
+        bgStat = "bg-gray-200"
+    }
 
 const div=document.createElement("div")
        div.innerHTML=`
@@ -117,16 +122,46 @@ openBtn.addEventListener("click",()=>{
    openBtn.classList.add("btn-primary")
    allbtn.classList.remove("btn-primary")
    closeBtn.classList.remove("btn-primary")
+
+
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res)=>res.json())
+    .then((data)=>{
+
+     const allIssues=data.data
+     const openIssue=allIssues.filter(issue=>issue.status==="open")
+      
+// console.log(openIssue)
+
+    displayAllIssues(openIssue)
+})
+
 })
 closeBtn.addEventListener("click",()=>{
-   closeBtn.classList.add("btn-primary")
+  closeBtn.classList.add("btn-primary")
    allbtn.classList.remove("btn-primary")
    openBtn.classList.remove("btn-primary")
+
+
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res)=>res.json())
+    .then((data)=>{
+
+     const allIssues=data.data
+     const closeIssue=allIssues.filter(issue=>issue.status==="closed")
+      
+//  console.log(closeIssue)
+
+    displayAllIssues(closeIssue)
 })
+
+})
+    
 allbtn.addEventListener("click",()=>{
    allbtn.classList.add("btn-primary")
    closeBtn.classList.remove("btn-primary")
    openBtn.classList.remove("btn-primary")
+   loadIssue()
 })
 
 loadIssue()
@@ -151,7 +186,8 @@ document.getElementById('newIssueBtn').addEventListener("click",()=>{
 })
 
 // 1.card showing on open and closed
-// 2.button active
+
+
 // 3.counting--->not mandatory
 
 
