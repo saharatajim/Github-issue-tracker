@@ -46,7 +46,7 @@
       <div class="flex items-center gap-3">
         <div><img src="./assets/Aperture.png" alt=""></div>
         <div>
-          <p><span id="count"></span> Issues</p>
+          <p><span id="count">0</span> Issues</p>
           <p>Track and manage your project issues</p>
         </div>
       </div>
@@ -62,12 +62,17 @@
         
       </div>
     </section>
+
+  
+
 <!-- all cards container section  -->
- <section id="allCardsContainer" class="bg-white shadow mt-1 grid sm:grid-cols-4 p-4 gap-3">
+ <section id="allCardsContainer" class="bg-white shadow mt-1 grid sm:grid-cols-4 p-4 gap-3 ">
+  
   <!-- dynamically all cards will be loaded here -->
   
  </section>
-
+ <!-- loading spinner -->
+<div id="spinner" class="flex justify-center mt-4" > <span class="loading loading-spinner text-success "></span></div>
  <section>
 
 <!-- Open the modal using ID.showModal() method -->

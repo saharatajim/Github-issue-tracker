@@ -1,23 +1,54 @@
 
 const allCardsContainer=document.getElementById('allCardsContainer')
+const spinner=document.getElementById('spinner')
+
+
+// spinner function
+function showSpinner(){
+
+    allCardsContainer.innerHTML=""
+}
+function hideSpinner(){
+    spinner.classList.add("hidden")
+    
+}
 // load all issues
  async function loadIssue(){
+   showSpinner()
 const res=await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
 const data=await res.json()
-
+hideSpinner()
  displayAllIssues(data.data)
+  
  }
 //display all 
 function displayAllIssues(inputData){
 
  allCardsContainer.innerHTML=""
  inputData.forEach(element =>{
+
+    let borderColorClass
+    let bgStat
+    
+    if(element.priority.toLowerCase()==="high"){
+        borderColorClass = "border-green-400";
+        bgStat="bg-red-300"
+    }
+    else if(element.priority.toLowerCase() === "medium") {
+      borderColorClass = "border-green-400";
+      bgStat="bg-yellow-300"}
+    else{
+        borderColorClass = "border-purple-400" 
+            bgStat="bg-gray-300"
+    }
+
+
 const div=document.createElement("div")
        div.innerHTML=`
-        <div class="card shadow-xl p-5 w-[256px] h-[300px] border-t border-green-400  ">
+        <div id="changeBorder" class="card shadow-xl p-5 w-[256px] h-[300px] border-t ${borderColorClass} ">
       <div class=" flex justify-between">
        <img class=" w-6 h-6" src="./assets/Open-Status.png" alt="">
-       <p id="changeBg" class="bg-red-300 text-red-500 py-1 px-3 rounded-lg">${element.priority}</p>
+       <p id="" class=" text-red-500 ${bgStat} py-1 px-3 rounded-lg">${element.priority}</p>
      </div>
       <div class="space-y-3">
        <h1 class="font-semibold cursor-pointer text-[14px] whitespace- mt-3 hover:text-orange-700" onclick="issueModal(${element.id})">${element.title}</h1>
@@ -47,6 +78,10 @@ const div=document.createElement("div")
     
     // document.getElementById('issueDetails').showModal() 
   }
+
+  async function selectButton(id) {
+    console.log(id)
+  }
 const displayIssuesDetails=(issue)=>{
     const detailBox=document.getElementById('details-container')
     detailBox.innerHTML=`
@@ -55,7 +90,7 @@ const displayIssuesDetails=(issue)=>{
      <div class="flex gap-5 my-4 items-center">
        <p class="bg-green-500 p-2 rounded-xl text-white " class="status">${issue.status}</p>
       <p><span class="open">${issue.status}</span> by <span class="author">${issue.author}</span></p>
-      <p>22/02/2026</p>
+      <p>${issue.createdAt}</p>
      </div>
       <div class="flex gap-2 mb-4">
         <p class="bg-[#FEECEC] text-red-500 py-1 px-3 rounded-full">Bug</p>
@@ -78,6 +113,7 @@ const displayIssuesDetails=(issue)=>{
 
     document.getElementById('issueDetails').showModal()
 }
+
 loadIssue()
 
 document.getElementById('newIssueBtn').addEventListener("click",()=>{
@@ -101,26 +137,7 @@ document.getElementById('newIssueBtn').addEventListener("click",()=>{
 
 
 
-/**
- document.getElementById('btnSearch').addEventListener("click",()=>{
 
-    removeActive()
-    const input=document.getElementById('inputSearch')
-    const searchValue=input.value.toLowerCase().trim()
-  
-
-    fetch("https://openapi.programming-hero.com/api/words/all")
-    .then((res)=>res.json())
-    .then((data)=>{
-        const allWords=data.data
-        const filterWords=allWords.filter(word=>word.word.toLowerCase().includes(searchValue))
-        
-           
-   displayLevelWord(filterWords)
-    }) 
-
-})
- */
 
 
 
