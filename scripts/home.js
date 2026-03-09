@@ -1,7 +1,9 @@
 
 const allCardsContainer=document.getElementById('allCardsContainer')
 const spinner=document.getElementById('spinner')
-
+const closeBtn=document.getElementById('closeBtn')
+const openBtn=document.getElementById('openBtn')
+const allbtn=document.getElementById('allbtn')
 
 // spinner function
 function showSpinner(){
@@ -10,7 +12,7 @@ function showSpinner(){
 }
 function hideSpinner(){
     spinner.classList.add("hidden")
-    
+   
 }
 // load all issues
  async function loadIssue(){
@@ -78,10 +80,7 @@ const div=document.createElement("div")
     
     // document.getElementById('issueDetails').showModal() 
   }
-
-  async function selectButton(id) {
-    console.log(id)
-  }
+//displaing all detais of ussue on a modal
 const displayIssuesDetails=(issue)=>{
     const detailBox=document.getElementById('details-container')
     detailBox.innerHTML=`
@@ -113,9 +112,25 @@ const displayIssuesDetails=(issue)=>{
 
     document.getElementById('issueDetails').showModal()
 }
+//togling
+openBtn.addEventListener("click",()=>{
+   openBtn.classList.add("btn-primary")
+   allbtn.classList.remove("btn-primary")
+   closeBtn.classList.remove("btn-primary")
+})
+closeBtn.addEventListener("click",()=>{
+   closeBtn.classList.add("btn-primary")
+   allbtn.classList.remove("btn-primary")
+   openBtn.classList.remove("btn-primary")
+})
+allbtn.addEventListener("click",()=>{
+   allbtn.classList.add("btn-primary")
+   closeBtn.classList.remove("btn-primary")
+   openBtn.classList.remove("btn-primary")
+})
 
 loadIssue()
-
+// searching data
 document.getElementById('newIssueBtn').addEventListener("click",()=>{
     const input=document.getElementById('inputIssues')
     const searchInput=input.value.toLowerCase().trim() 
@@ -135,10 +150,9 @@ document.getElementById('newIssueBtn').addEventListener("click",()=>{
 
 })
 
-// 1.button active
-// 2.card showing on open and closed
-// 3.quize
-// 4.counting--->not mandatory
+// 1.card showing on open and closed
+// 2.button active
+// 3.counting--->not mandatory
 
 
 
