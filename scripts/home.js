@@ -26,6 +26,9 @@ hideSpinner()
 //display all 
 function displayAllIssues(inputData){
 
+document.getElementById("count")
+.textContent=inputData.length
+
  allCardsContainer.innerHTML=""
  inputData.forEach(element =>{
 
@@ -185,7 +188,7 @@ document.getElementById('newIssueBtn').addEventListener("click",()=>{
 
 })
 
-// 1.card showing on open and closed
+
 
 
 // 3.counting--->not mandatory
