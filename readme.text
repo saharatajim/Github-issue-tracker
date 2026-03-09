@@ -16,7 +16,6 @@ Ans:Difference between ap(), filter(), and forEach()-
 4️⃣ What is an arrow function?
 Ans:Arrow Function in JavaScript is a shorter way to write function using the => syntax  
  
-
 5️⃣ What are template literals
-Anss
+Ans:
 Is is a Strings with backticks and can put variables inside with `${}` and write multi-line easily.  
