@@ -26,11 +26,11 @@
 
   
 
- <input id="inputPassword" type="password" class="hidden input  sm:block w-full" placeholder="Search issues..." />
+ <input id="inputIssues" type="text" class="hidden input  sm:block w-full" placeholder="Search issues..." />
 
       
      
-      <button class="btn hidden sm:block btn-primary">+ New Issue</button>
+      <button  id="newIssueBtn"class="btn hidden sm:block btn-primary">+ New Issue</button>
     </div>
   </header>
 
@@ -46,7 +46,7 @@
       <div class="flex items-center gap-3">
         <div><img src="./assets/Aperture.png" alt=""></div>
         <div>
-          <p>50 Issues</p>
+          <p><span id="count"></span> Issues</p>
           <p>Track and manage your project issues</p>
         </div>
       </div>

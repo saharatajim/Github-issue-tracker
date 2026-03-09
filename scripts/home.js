@@ -1,13 +1,11 @@
 
 const allCardsContainer=document.getElementById('allCardsContainer')
-
-
-
 // load all issues
  async function loadIssue(){
 const res=await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
 const data=await res.json()
-displayAllIssues(data.data)
+
+ displayAllIssues(data.data)
  }
 //display all 
 function displayAllIssues(inputData){
@@ -42,7 +40,6 @@ const div=document.createElement("div")
    )
   } 
 // all details modal
-
   async function issueModal(issueId) {
     const res =await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`)  
     const json=await res.json()
@@ -81,17 +78,49 @@ const displayIssuesDetails=(issue)=>{
 
     document.getElementById('issueDetails').showModal()
 }
-
 loadIssue()
 
+document.getElementById('newIssueBtn').addEventListener("click",()=>{
+    const input=document.getElementById('inputIssues')
+    const searchInput=input.value.toLowerCase().trim() 
+
+
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res)=>res.json())
+    .then((data)=>{
+
+     const allIssues=data.data
+     const filterIssue=allIssues.filter(title=>title.title.toLowerCase().includes(searchInput))
+      
+
+       displayAllIssues(filterIssue)
+
+    })
+
+})
 
 
 
+/**
+ document.getElementById('btnSearch').addEventListener("click",()=>{
 
-// for modal-i load the modal details api and store json data to a variable
-//then call the modal element id use modal function method to show modal
-//then make  a onclick function on an element of display function,where by clicking modal will appear
-//onclick function will take input id then it will be responsed by issueModal fuction
+    removeActive()
+    const input=document.getElementById('inputSearch')
+    const searchValue=input.value.toLowerCase().trim()
+  
+
+    fetch("https://openapi.programming-hero.com/api/words/all")
+    .then((res)=>res.json())
+    .then((data)=>{
+        const allWords=data.data
+        const filterWords=allWords.filter(word=>word.word.toLowerCase().includes(searchValue))
+        
+           
+   displayLevelWord(filterWords)
+    }) 
+
+})
+ */
 
 
 
