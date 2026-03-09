@@ -1,0 +1,22 @@
+1️⃣ What is the difference between var, let, and const?
+Ans:Difference between var, let, const are-
+1.var is old way, global scope, can change and re-declare.  
+2.let is modern but block scope, can change but not re-declare.  
+3.const is block scope and it cannot change after set but objects/arrays can still be edited.  
+
+2️⃣ What is the spread operator (...)?
+Ans:It is a special syntax that used in JavaScrpt for expanding Arrays and Object into indivisual Element
+
+3️⃣ What is the difference between map(), filter(), and forEach()?
+Ans:Difference between ap(), filter(), and forEach()-
+1.map(),It makes a new array with changed values.  
+2.filter(),It makes a new array with only matching values.  
+3.forEach(),It  just runs code for each item, no new array.  
+
+4️⃣ What is an arrow function?
+Ans:Arrow Function in JavaScript is a shorter way to write function using the => syntax  
+ 
+
+5️⃣ What are template literals
+Anss
+Is is a Strings with backticks and can put variables inside with `${}` and write multi-line easily.  

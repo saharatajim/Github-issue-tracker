@@ -135,7 +135,10 @@ document.getElementById('newIssueBtn').addEventListener("click",()=>{
 
 })
 
-
+// 1.button active
+// 2.card showing on open and closed
+// 3.quize
+// 4.counting--->not mandatory
 
 
 
