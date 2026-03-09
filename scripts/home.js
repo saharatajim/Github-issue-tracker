@@ -55,7 +55,7 @@ else if(element.priority.toLowerCase()==="low"){
 
 const div=document.createElement("div")
        div.innerHTML=`
-        <div id="changeBorder" class="card shadow-xl p-5 w-[256px] h-[300px] border-t ${borderColorClass} ">
+        <div id="changeBorder" class="card shadow-xl p-5 w-[256px] h-[300px] border-t-4 ${borderColorClass} ">
       <div class=" flex justify-between">
        <img class=" w-6 h-6" src="./assets/Open-Status.png" alt="">
        <p id="" class=" text-red-500 ${bgStat} py-1 px-3 rounded-lg">${element.priority}</p>
@@ -64,7 +64,7 @@ const div=document.createElement("div")
        <h1 class="font-semibold cursor-pointer text-[14px] whitespace- mt-3 hover:text-orange-700" onclick="issueModal(${element.id})">${element.title}</h1>
        <p class="line-clamp-2 text-xs text-[#64748B]">${element.description}</p>
        </div>
-      <div class="flex justify-between my-3">
+      <div class="flex  gap-3 items-center my-3">
         <p class="bg-[#FEECEC] text-red-500 py-1 px-3 rounded-full">Bug</p>
         <p class="bg-[#FFF8DB] text-red-500 py-1 px-3 rounded-full">Help Wanted</p>
       </div>
@@ -126,6 +126,7 @@ openBtn.addEventListener("click",()=>{
    allbtn.classList.remove("btn-primary")
    closeBtn.classList.remove("btn-primary")
 
+showSpinner()
 
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res)=>res.json())
@@ -133,7 +134,8 @@ openBtn.addEventListener("click",()=>{
 
      const allIssues=data.data
      const openIssue=allIssues.filter(issue=>issue.status==="open")
-      
+     
+      hideSpinner()
 // console.log(openIssue)
 
     displayAllIssues(openIssue)
@@ -145,14 +147,14 @@ closeBtn.addEventListener("click",()=>{
    allbtn.classList.remove("btn-primary")
    openBtn.classList.remove("btn-primary")
 
-
+showSpinner()
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res)=>res.json())
     .then((data)=>{
 
      const allIssues=data.data
      const closeIssue=allIssues.filter(issue=>issue.status==="closed")
-      
+      hideSpinner()
 //  console.log(closeIssue)
 
     displayAllIssues(closeIssue)
@@ -191,7 +193,7 @@ document.getElementById('newIssueBtn').addEventListener("click",()=>{
 
 
 
-// 3.counting--->not mandatory
+
 
 
 
