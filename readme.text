@@ -1,21 +1,57 @@
-1️⃣ What is the difference between var, let, and const?
-Ans:Difference between var, let, const are-
-1.var is old way, global scope, can change and re-declare.  
-2.let is modern but block scope, can change but not re-declare.  
-3.const is block scope and it cannot change after set but objects/arrays can still be edited.  
+# 🛠️ GitHub Issue Tracker
 
-2️⃣ What is the spread operator (...)?
-Ans:It is a special syntax that used in JavaScrpt for expanding Arrays and Object into indivisual Element
+A modern, responsive issue management application that allows users to track, filter, and manage software tasks. This project features a secure login system, dynamic data rendering, and a sleek user interface based on professional Figma designs.
 
-3️⃣ What is the difference between map(), filter(), and forEach()?
-Ans:Difference between ap(), filter(), and forEach()-
-1.map(),It makes a new array with changed values.  
-2.filter(),It makes a new array with only matching values.  
-3.forEach(),It  just runs code for each item, no new array.  
+## 🚀 Live Demo
+**[View Project Live](https://saharatajim.github.io/Github-issue-tracker/)**
 
-4️⃣ What is an arrow function?
-Ans:Arrow Function in JavaScript is a shorter way to write function using the => syntax  
- 
-5️⃣ What are template literals
-Ans:
-Is is a Strings with backticks and can put variables inside with `${}` and write multi-line easily.  
+---
+
+## 🧐 Overview
+This application serves as a centralized portal for monitoring project progress. It provides an intuitive dashboard where issues are categorized by their status (Open or Closed). The system ensures that users can quickly find relevant information through real-time search and detailed modals.
+
+## ✨ Key Features
+* **Secure Authentication:** Access-controlled login page requiring specific admin credentials.
+* **Dynamic Issue Filtering:** Switch seamlessly between **All**, **Open**, and **Closed** tabs.
+* **Visual Status Indicators:**
+    * **Green Top Border** for Open issues.
+    * **Purple Top Border** for Closed issues.
+* **Detailed Information:** Clickable issue cards that open a modal containing full description, author, priority, and creation date.
+* **Search Functionality:** Real-time filtering by issue title or description.
+* **State Management:** Interactive loading spinners during data fetching and active button states for smooth UX.
+* **Fully Responsive:** Designed with a mobile-first approach for accessibility across all devices.
+
+## 🛠️ Technology Stack
+* **Structure:** HTML5
+* **Styling:** CSS3 / Tailwind CSS / DaisyUI
+* **Logic:** Vanilla JavaScript (ES6+)
+
+## 📦 Dependencies
+* **Tailwind CSS:** For utility-first styling.
+* **DaisyUI:** For pre-built accessible UI components.
+* **Google Fonts:** For modern typography.
+
+---
+
+## ⚙️ Installation & Local Setup
+
+To run this project on your local machine, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/saharatajim/Github-issue-tracker.git](https://github.com/saharatajim/Github-issue-tracker.git)
+    ```
+2.  **Navigate to the directory:**
+    ```bash
+    cd Github-issue-tracker
+    ```
+3.  **Run the application:**
+    Open `index.html` in your browser, or use the **Live Server** extension in VS Code.
+
+## 🔑 Demo Credentials
+* **Username:** `admin`
+* **Password:** `admin123`
+
+
+
+<p align="center"><b>⭐ From Sahara Tajim</b><br/><i>CSE Student & Aspiring MERN Stack Developer</i></p>
